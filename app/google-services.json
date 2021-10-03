@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "982517745902",
+    "project_id": "ziip-for-zotero",
+    "storage_bucket": "ziip-for-zotero.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982517745902:android:aae69ca4420e3038448bff",
+        "android_client_info": {
+          "package_name": "com.workspaces.ziip.zotero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982517745902-9a2qd63du7nq2g342lm4lt2t93ou6a6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8X6A0ORQMzmT-wPApgMe0Wn2im9ToRLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982517745902-9a2qd63du7nq2g342lm4lt2t93ou6a6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
