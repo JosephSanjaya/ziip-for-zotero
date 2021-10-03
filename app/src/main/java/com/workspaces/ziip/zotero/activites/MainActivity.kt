@@ -1,7 +1,8 @@
-package com.workspaces.ziip.zotero
+package com.workspaces.ziip.zotero.activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.workspaces.ziip.zotero.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,21 +1,33 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.devtools.ksp'
+    id 'com.github.matthiasrobbers.shortbread'
 }
 
 android {
-    compileSdk 31
+    compileSdk versions.targetSdk
+    buildToolsVersion libs.versions.build.tools.get()
 
     defaultConfig {
         applicationId "com.workspaces.ziip.zotero"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode versions.appCode
+        versionName versions.appName
 
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -32,12 +44,22 @@ android {
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation project(":core")
+    implementation libs.bundles.androidx.compat
+    implementation libs.bundles.navigation
+    implementation libs.bundles.image.processor
+    implementation libs.bundles.androidx.app
+    implementation "com.github.skydoves:bundler:1.0.4"
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.kirich1409.viewbindingpropertydelegate:viewbindingpropertydelegate:1.4.1'
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
     testImplementation 'junit:junit:4.+'
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:${libs.versions.adapter.get()}"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "com.github.matthiasrobbers:shortbread:${libs.versions.shortbread.get()}"
+    kapt "com.github.matthiasrobbers:shortbread-compiler:${libs.versions.shortbread.get()}"
+    implementation "com.airbnb:deeplinkdispatch:${libs.versions.deep.link.get()}"
+    ksp "com.airbnb:deeplinkdispatch-processor:${libs.versions.deep.link.get()}"
+
 }

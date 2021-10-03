@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk versions.targetSdk
+    buildToolsVersion libs.versions.build.tools.get()
+
+    defaultConfig {
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode versions.appCode
+        versionName versions.appName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${libs.versions.desugar.get()}"
+    api libs.bundles.firebase
+    api libs.bundles.utils
+    api libs.bundles.kotlin.base
+    api libs.bundles.retrofit
+    api libs.bundles.jetpack.lifecycle
+    api libs.bundles.koin
+    debugApi "com.github.chuckerteam.chucker:library:${libs.versions.chucker.get()}"
+    releaseApi "com.github.chuckerteam.chucker:library-no-op:${libs.versions.chucker.get()}"
+    api "io.arrow-kt:arrow-core:${libs.versions.arrow.get()}"
+    api 'org.greenrobot:eventbus:3.2.0'
+    api "com.thinkinglogic.builder:kotlin-builder-annotation:${libs.versions.builder.anno.get()}"
+    kapt "com.thinkinglogic.builder:kotlin-builder-processor:${libs.versions.builder.anno.get()}"
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
